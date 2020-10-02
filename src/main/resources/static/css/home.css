@@ -1,0 +1,166 @@
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.main-content {
+  padding: 16px;
+}
+
+.sticky + .main-content {
+  padding-top: 60px;
+}
+
+
+
+
+
+
+section div .arrows {
+    position: absolute;
+    padding-left: 25px;
+    padding-top: 100px;
+    font-size: 30px;
+    -webkit-transform: scale(1, 1.6);
+}
+section div .arrows #arrow-next {
+    padding-left: 1800px;
+}
+
+div .home-top-title {
+    background-image: url("../img/Dice.jpg");
+    background-position: center;
+    height: 480px;
+    color: #d8d8d8;
+    padding-top: 50px;
+}
+div .title-in-card{
+    font-family: Roboto, Helvetica Neue, sans-serif;
+    font-size: 35px;
+    line-height: 30px;
+    padding-left: 80px;
+}
+
+div .title-in-card span{
+    font-family: Roboto, Helvetica Neue, sans-serif;
+    font-size: 16px;
+    line-height: 30px;
+}
+
+#home-top-registerButton {
+    margin-top: 20px;
+}
+
+
+
+
+
+                                                        /*<<< The content >>>*/
+
+
+body {
+    background: rgba(50, 50, 50, 0.2);
+}
+
+section.page-content {
+    margin-top: 2%;
+}
+
+section div.main-content {
+    margin: 0 1%;
+}
+
+section div.category-column {
+    margin-left: 5%;
+    margin-right: 3%;
+    float: left;
+    width: 12%;
+    padding: 10px;
+    height: 1500px;
+    background: #333333;
+    color: white;
+}
+section div.category-column h2{
+
+    padding-bottom: 3%;
+}
+section div.category-column p{
+    border-bottom: #585858 solid 1px;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+section div.event-column {
+    margin: 0 0.5%;
+    float: left;
+    width: 25%;
+    background-color:whitesmoke;
+}
+
+section div.event-column-head {
+    color: #d8d8d8;
+    background: #333333;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+    padding: 1% 0 1% 5%;
+}
+
+section div.event-item {
+    border-bottom: solid 1px rgba(0, 0, 0, 0.2);
+    padding: 3%;
+    height: 100%;
+    color: #999999;
+}
+
+section div p.event-item-head {
+    padding-bottom: 5%;
+}
+
+section div p span.event-text-right {
+    display:block;
+    float:right;
+    margin-left:0.8%;
+}
+
+section div.left-column {
+    /*margin: 0 0.5%;*/
+    position: relative;
+    float: left;
+    text-align: left;
+    width: 20%;
+}
+
+section div.right-column {
+    overflow: hidden;
+    text-align: right;
+    margin: 0;
+}
+
+section div.right-column div.inner-right-column-left {
+    position: relative;
+    float: left;
+    text-align: right;
+    width: 50%;
+}
+section div.right-column div.inner-right-column-right {
+    position: relative;
+    float: right;
+    text-align: center;
+    padding-left: 10px;
+    width: 50%;
+}
+
+section div.right-column>button {
+    width: 90px;
+    background: #0e5f31;
+    border: white 2px solid;
+    color: white;
+    text-shadow: white;
+    height: 25px;
+    border-radius: 15%;
+}
+section div.right-column>button:hover {
+    background: #1cbc66;
+    color: white;
+    text-shadow: white;
+}

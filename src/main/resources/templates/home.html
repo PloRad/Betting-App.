@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html xmlns:th="thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+    <link rel="stylesheet" type="text/css" href="./css/style.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="./css/home.css" media="screen">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+</head>
+<body class="layout-one-column sportsbetting desktop site-wide">
+<div id="container">
+    <header id="header">
+        <div class="top-container">
+            <div class="header-container">
+                <h1 class="header-controls-heading"
+                    title="Online Betting - Sports Bets &amp; Betting Odds">Online Betting - Sports Bets &amp; Betting
+                    Odds</h1>
+                <div class="header-controls">
+                    <ul class="header-menu">
+
+                        <li class="menu-item">
+                            <a href=""
+                               class="has-icon-suffix  external-link ">
+                                <span class="text">About Us</span>
+                                <i class="icon-wrapper icon-suffix external-link">
+                                </i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-container">
+            <div class="header-container">
+                <h1></h1>
+                <img name="Logo"
+                     th:src="@{/img/Logo.png}">
+                <div class="account-container">
+                    <div id="login-64127"
+                         data-test-name="container-login">
+                        <div class="">
+                            <div class="widget login">
+                                <div class="login-content">
+                                    <div class="top-container"></div>
+                                    <div class="MainLogin__inline___1STfT">
+                                        <div class="MainLogin__headerListContainer___18GWl MainLogin__shrinkRight___2QG_i">
+                                            <div>
+                                                <div class="Group__vertical___3xm_m Group__root___hnqau Group__tight___2kwl8">
+                                                    <div class="Group__horizontal___33MBr Group__root___hnqau Group__normal___2vWh8">
+
+                                                        <form th:action="@{/login}" method="POST">
+                                                            <div class="Group__horizontal___33MBr Group__root___hnqau Group__none___3J27q">
+                                                                <div class="_e296pg">
+                                                                    <div class="_e7hn5">
+                                                                        <div class="_irsnq7">
+                                                                            <div class="Fieldstyle__FormField-sc-1gdsmw1-0 dVqUFp">
+                                                                                <input class="Field-headerstyle__HeaderInput-sc-1p523a3-0 fvfEHO Fieldstyle__Input-sc-1gdsmw1-1 iTCtjl"
+                                                                                       id="ufe_unique_id_1"
+                                                                                       name="username"
+                                                                                       type="email"
+                                                                                       placeholder="Email"
+                                                                                       autocomplete="off"
+                                                                                       value="">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="_3gspvn">
+                                                                    <div class="_e7hn5">
+                                                                        <div class="_irsnq7">
+                                                                            <div class="fieldContainer">
+                                                                                <div class="Fieldstyle__FormField-sc-1gdsmw1-0 dVqUFp">
+                                                                                    <input class="Field-headerstyle__HeaderInput-sc-1p523a3-0 fvfEHO Fieldstyle__Input-sc-1gdsmw1-1 beIQrZ"
+                                                                                           id="ufe_unique_id_2"
+                                                                                           name="password"
+                                                                                           type="password"
+                                                                                           placeholder="Password"
+                                                                                           autocomplete="off"
+                                                                                           value="">
+                                                                                </div>
+                                                                                <div class="Password__decorator___18BCS">
+                                                                                    <div>
+                                                                                        <a class="_1mki11ol"
+                                                                                           data-test-name="forgot-password">
+																		 <span>
+																		 <span class="ForgotPasswordLink__forgotPassword___FNdCi">Forgot?</span>
+																		 </span>
+                                                                                        </a>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div>
+                                                                    <button class="_192xn9cNaN" data-test-name="btn-login" type="submit">
+														                <span class="_7byueq">
+														                    <span class="_1etkxf1">Log In</span>
+														                </span>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="bottom-container">
+                                            <div class="register-button-container">
+                                                <a href="/register"
+                                                   class="_10sdc5fNaN"
+                                                   data-test-name="btn-register">
+										   <span class="_7byueq">
+										   <span class="_1etkxf1">Register</span>
+										   </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="drawer-bottom"
+             class="drawer hidden">
+            <div class="drawer-arrow"></div>
+            <div class="drawer-content drawer-content-right"></div>
+        </div>
+        <div id="drawerBottom-115461"></div>
+    </header>
+    <div id="navigation-355596" class="widget navigation">
+        <div id="nav-main"
+             class="main-navigation">
+            <nav>
+                <ul class="menu-list product-navigation">
+                    <li class="list-item active has-sub ">
+                        <a href="/home"
+                           class="has-icon-prefix link-item"
+                           title="Home">
+                            <i class="icon-wrapper icon-prefix sportsbook">
+                            </i>
+                            <span class="text">Home</span>
+                        </a>
+                    </li>
+                    <li class="list-item">
+                        <a href="/#"
+                           class="has-icon-prefix link-item"
+                           title="My Bets">
+                            <i class="icon-wrapper icon-prefix casino">
+                            </i>
+                            <span class="text">My Bets</span>
+                        </a>
+                    </li>
+                    <li class="list-item">
+                        <a href="/#"
+                           class="has-icon-prefix link-item"
+                           title="My Account">
+                            <i class="icon-wrapper icon-prefix horse-racing">
+                            </i>
+                            <span class="text">My Account</span>
+                        </a>
+                    </li>
+                    <li class="list-item">
+                        <a href="/newEvent"
+                           class="has-icon-prefix link-item"
+                           title="Admin">
+                            <i class="icon-wrapper icon-prefix horse-racing">
+                            </i>
+                            <span class="text">Admin</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+         <div sec:authorize="isAuthenticated()"> Sunt Autentificat uei</div>
+         <div sec:authorize="isAnonymous()"> Nu sunt autentificat Boss</div>
+
+<!-- Main Content -->
+    <section id="main-content">
+        <!--  Sliding Presentation  -->
+        <section name="top-presentation">
+            <div class="container home-top-title">
+                <div class="arrows">
+                    <span id="arrow-previous"><</span>
+                    <span id="arrow-next">></span>
+                </div>
+                <div class="title-in-card">
+                    <p>Join the IntelliBet community</p>
+                    <p><span> and win with your favourite teams</span></p>
+                    <button id="home-top-registerButton" name=""
+                            class="btn submit-button $buttonTypeClass"
+                            type="">
+                        Register
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events -->
+        <section class="page-content" name="categories">
+            <div class="category-column">
+                <h2>Category</h2>
+                <p th:each="category : ${T(com.intellibet.model.EventCategory).values()}" th:text="${category}" />
+            </div>
+        </section>
+        <section class="page-content" name="cards">
+            <div class="main-content">
+                <div class="event-column">
+                    <div class="event-column-head">
+                        <p>Another Thing</p>
+                    </div>
+                    <div th:each="eventForm : ${eventFormList}" class="event-item">
+                        <form th:object="${eventForm}" th:action="@{/#}" method="post" class="form" novalidate="novalidate">
+                            <p class="event-item-head">
+                                <span th:text="${eventForm.category}"></span>
+                                <span th:text="${eventForm.time}" class="event-text-right"></span></p>
+                            <div class="event-teams">
+                                <div class="left-column">
+                                    <p th:text="${eventForm.playerA}" ></p>
+                                    <p th:text="${eventForm.playerB}" ></p>
+                                </div>
+                                <div class="right-column">
+                                    <div class="inner-right-column">
+                                        <div class="inner-right-column-left">1</div>
+<!--                                        <div class="inner-right-column-right">X</div>-->
+                                        <div class="inner-right-column-right">2</div>
+                                    </div>
+                                    <button th:text="${eventForm.oddA}"></button>
+<!--                                    <button th:text="${eventForm.oddX}"></button>-->
+                                    <button th:text="${eventForm.oddB}"></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="event-column">
+                    <div class="event-column-head">
+                        <p>Another Thing</p>
+                    </div>
+                    <div class="event-item">
+                        <p class="event-item-head">Basketball / NBA<span class="event-text-right">18:30</span></p>
+                        <div class="event-teams">
+                            <div class="left-column">
+                                <p>Home</p>
+                                <p>Guest</p>
+                            </div>
+                            <div class="right-column">
+                                <div class="inner-right-column">
+                                    <div class="inner-right-column-left">1</div>
+                                    <div class="inner-right-column-right">2</div>
+                                </div>
+                                <button>1.2</button>
+                                <button>3.5</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event-item">
+                        <p class="event-item-head">Basketball / NBA<span class="event-text-right">18:30</span></p>
+                        <div class="event-teams">
+                            <div class="left-column">
+                                <p>Home</p>
+                                <p>Guest</p>
+                            </div>
+                            <div class="right-column">
+                                <div class="inner-right-column">
+                                    <div class="inner-right-column-left">1</div>
+                                    <div class="inner-right-column-right">2</div>
+                                </div>
+                                <button>1.2</button>
+                                <button>3.5</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="event-item">
+                        <p class="event-item-head">Basketball / NBA<span class="event-text-right">18:30</span></p>
+                        <div class="event-teams">
+                            <div class="left-column">
+                                <p>Home</p>
+                                <p>Guest</p>
+                            </div>
+                            <div class="right-column">
+                                <div class="inner-right-column">
+                                    <div class="inner-right-column-left">1</div>
+                                    <div class="inner-right-column-right">2</div>
+                                </div>
+                                <button>1.2</button>
+                                <button>3.5</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="event-column">
+                    <div class="event-column-head">
+                        <p>Another Thing</p>
+                    </div>
+                    <div class="event-item">
+                        <p class="event-item-head">Basketball / NBA<span class="event-text-right">18:30</span></p>
+                        <div class="event-teams">
+                            <div class="left-column">
+                                <p>Home</p>
+                                <p>Guest</p>
+                            </div>
+                            <div class="right-column">
+                                <div class="inner-right-column">
+                                    <div class="inner-right-column-left">1</div>
+                                    <div class="inner-right-column-right">2</div>
+                                </div>
+                                <button>1.2</button>
+                                <button>3.5</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!--	     <script type="text/javascript" th:src="@{/js/script.js}"></script>-->
+<script src="/js/script.js"></script>
+</body>
+
+
+</html>
