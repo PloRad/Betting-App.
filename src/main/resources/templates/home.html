@@ -10,6 +10,9 @@
     <script src='https://kit.fontawesome.com/a076d05399.js'></script>
 
 </head>
+<!------------------------------------------------->
+<!---      Marked for removal   ->      +++      -->
+<!------------------------------------------------->
 <body class="layout-one-column sportsbetting desktop site-wide">
 <div id="container">
     <header id="header">
@@ -20,7 +23,6 @@
                     Odds</h1>
                 <div class="header-controls">
                     <ul class="header-menu">
-
                         <li class="menu-item">
                             <a href=""
                                class="has-icon-suffix  external-link ">
@@ -33,6 +35,8 @@
                 </div>
             </div>
         </div>
+
+
         <div class="bottom-container">
             <div class="header-container">
                 <h1></h1>
@@ -45,13 +49,15 @@
                             <div class="widget login">
                                 <div class="login-content">
                                     <div class="top-container"></div>
+                                    <div style="overflow: hidden; height: 0px; transition: height 400ms ease-out 0s;"></div>
                                     <div class="MainLogin__inline___1STfT">
                                         <div class="MainLogin__headerListContainer___18GWl MainLogin__shrinkRight___2QG_i">
                                             <div>
                                                 <div class="Group__vertical___3xm_m Group__root___hnqau Group__tight___2kwl8">
                                                     <div class="Group__horizontal___33MBr Group__root___hnqau Group__normal___2vWh8">
 
-                                                        <form th:action="@{/login}" method="POST">
+                                                        <form sec:authorize="isAnonymous()" th:action="@{/login}"
+                                                              method="POST">
                                                             <div class="Group__horizontal___33MBr Group__root___hnqau Group__none___3J27q">
                                                                 <div class="_e296pg">
                                                                     <div class="_e7hn5">
@@ -96,7 +102,8 @@
                                                                     </div>
                                                                 </div>
                                                                 <div>
-                                                                    <button class="_192xn9cNaN" data-test-name="btn-login" type="submit">
+                                                                    <button class="_192xn9cNaN"
+                                                                            data-test-name="btn-login" type="submit">
 														                <span class="_7byueq">
 														                    <span class="_1etkxf1">Log In</span>
 														                </span>
@@ -110,13 +117,18 @@
                                             </div>
                                         </div>
                                         <div class="bottom-container">
-                                            <div class="register-button-container">
-                                                <a href="/register"
-                                                   class="_10sdc5fNaN"
-                                                   data-test-name="btn-register">
-										   <span class="_7byueq">
-										   <span class="_1etkxf1">Register</span>
-										   </span>
+                                            <div sec:authorize="isAnonymous()" class="register-button-container">
+                                                <a href="/register" class="_10sdc5fNaN">
+                                                    <span class="_7byueq">
+                                                        <span class="_1etkxf1">Register</span>
+                                                    </span>
+                                                </a>
+                                            </div>
+                                            <div sec:authorize="isAuthenticated()" class="register-button-container">
+                                                <a href="/logout" class="_10sdc5fNaN">
+                                                    <span class="_7byueq">
+                                                        <span class="_1etkxf1">Log out</span>
+                                                    </span>
                                                 </a>
                                             </div>
                                         </div>
@@ -149,8 +161,9 @@
                             <span class="text">Home</span>
                         </a>
                     </li>
-                    <li class="list-item">
-                        <a href="/#"
+
+                    <li sec:authorize="isAuthenticated()" class="list-item">
+                        <a href="#"
                            class="has-icon-prefix link-item"
                            title="My Bets">
                             <i class="icon-wrapper icon-prefix casino">
@@ -158,8 +171,9 @@
                             <span class="text">My Bets</span>
                         </a>
                     </li>
-                    <li class="list-item">
-                        <a href="/#"
+
+                    <li sec:authorize="isAuthenticated()" class="list-item">
+                        <a href="/myAccount"
                            class="has-icon-prefix link-item"
                            title="My Account">
                             <i class="icon-wrapper icon-prefix horse-racing">
@@ -167,48 +181,42 @@
                             <span class="text">My Account</span>
                         </a>
                     </li>
-                    <li class="list-item">
+                    <li sec:authorize="isAuthenticated()" class="list-item">
                         <a href="/newEvent"
                            class="has-icon-prefix link-item"
                            title="Admin">
-                            <i class="icon-wrapper icon-prefix horse-racing">
+                            <i class="icon-wrapper icon-prefix live-casino-wheel">
                             </i>
                             <span class="text">Admin</span>
                         </a>
                     </li>
+                    <li sec:authorize="isAnonymous()" class="list-item">
+                        <a href="/register"
+                           class="has-icon-prefix link-item"
+                           title="Admin">
+                            <i class="icon-wrapper icon-prefix live-casino-wheel">
+                            </i>
+                            <span class="text">Register</span>
+                        </a>
+                    </li>
+
+                </ul>
+                <ul class="menu-list misc-navigation">
+
+
                 </ul>
             </nav>
         </div>
     </div>
-         <div sec:authorize="isAuthenticated()"> Sunt Autentificat uei</div>
-         <div sec:authorize="isAnonymous()"> Nu sunt autentificat Boss</div>
 
-<!-- Main Content -->
+    <!-- Main Content -->
     <section id="main-content">
-        <!--  Sliding Presentation  -->
-        <section name="top-presentation">
-            <div class="container home-top-title">
-                <div class="arrows">
-                    <span id="arrow-previous"><</span>
-                    <span id="arrow-next">></span>
-                </div>
-                <div class="title-in-card">
-                    <p>Join the IntelliBet community</p>
-                    <p><span> and win with your favourite teams</span></p>
-                    <button id="home-top-registerButton" name=""
-                            class="btn submit-button $buttonTypeClass"
-                            type="">
-                        Register
-                    </button>
-                </div>
-            </div>
-        </section>
 
         <!-- Events -->
         <section class="page-content" name="categories">
             <div class="category-column">
                 <h2>Category</h2>
-                <p th:each="category : ${T(com.intellibet.model.EventCategory).values()}" th:text="${category}" />
+                <p th:each="category : ${T(com.intellibet.model.EventCategory).values()}" th:text="${category}"></p>
             </div>
         </section>
         <section class="page-content" name="cards">
@@ -217,113 +225,205 @@
                     <div class="event-column-head">
                         <p>Another Thing</p>
                     </div>
+
                     <div th:each="eventForm : ${eventFormList}" class="event-item">
-                        <form th:object="${eventForm}" th:action="@{/#}" method="post" class="form" novalidate="novalidate">
+                        <form th:object="${eventForm}" th:action="@{/#}" method="post" class="form"
+                              novalidate="novalidate">
                             <p class="event-item-head">
                                 <span th:text="${eventForm.category}"></span>
-                                <span th:text="${eventForm.time}" class="event-text-right"></span></p>
+                                <span th:text="${eventForm.time}" class="event-text-right time"></span>
+                                <span th:text="${eventForm.date}" class="event-text-right date"></span>
+                            </p>
                             <div class="event-teams">
                                 <div class="left-column">
-                                    <p th:text="${eventForm.playerA}" ></p>
-                                    <p th:text="${eventForm.playerB}" ></p>
+                                    <p class="playerA" th:text="${eventForm.playerA}"></p>
+
+                                    <p class="playerB" th:text="${eventForm.playerB}"></p>
                                 </div>
                                 <div class="right-column">
                                     <div class="inner-right-column">
-                                        <div class="inner-right-column-left">1</div>
-<!--                                        <div class="inner-right-column-right">X</div>-->
-                                        <div class="inner-right-column-right">2</div>
+
+                                        <div class="inner-right-column-left">
+                                            <label>1</label>
+                                            <button th:text="${eventForm.oddA}"></button>
+                                        </div>
+
+                                        <div class="inner-right-column-center">
+                                            <label>X</label>
+                                            <button th:text="${eventForm.oddX}"></button>
+                                        </div>
+
+                                        <div class="inner-right-column-right">
+                                            <label>2</label>
+                                            <button th:text="${eventForm.oddB}"></button>
+                                        </div>
+
                                     </div>
-                                    <button th:text="${eventForm.oddA}"></button>
-<!--                                    <button th:text="${eventForm.oddX}"></button>-->
-                                    <button th:text="${eventForm.oddB}"></button>
                                 </div>
                             </div>
+                            <span style="display: none;" th:text="${eventForm.eventId}" class="eventId"></span>
                         </form>
                     </div>
                 </div>
-                <div class="event-column">
+                <div class="event-column bet-card">
                     <div class="event-column-head">
-                        <p>Another Thing</p>
+                        <p>Your bet</p>
                     </div>
-                    <div class="event-item">
-                        <p class="event-item-head">Basketball / NBA<span class="event-text-right">18:30</span></p>
-                        <div class="event-teams">
-                            <div class="left-column">
-                                <p>Home</p>
-                                <p>Guest</p>
-                            </div>
-                            <div class="right-column">
-                                <div class="inner-right-column">
-                                    <div class="inner-right-column-left">1</div>
-                                    <div class="inner-right-column-right">2</div>
+<!--                    -->
+                    <form th:object="${betForm}"
+                            th:action="@{/home}"
+                            method="post" class="form">
+
+                    <div class="mainBetCard">
+                        <div class="jss320">
+                            <div class="jss321">
+                                <div class="jss761 jss769">
+                                    <div class="jss762">
+                                        <div class="jss763 teams">Hallescher : Zwickau</div>
+                                        <div class="jss764 dateTime">12/10 20:00</div>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <div class="flex-grow-1 jss766">
+                                            <div class="jss182">
+                                                <div class="d-flex flex-row flex-nowrap justify-content-between align-items-center">
+                                                    <div class="d-flex align-items-center">
+                                                        <div class="jss194">Final | <span th:field="*{option}" class="jss204 option">1</span></div>
+                                                    </div>
+                                                    <div class="undefined d-flex flex-row flex-nowrap justify-content-between align-items-center">
+                                                        <div class="jss195 odd">2.20</div>
+                                                        <div>
+                                                            <div class="jss192 d-flex align-items-center">
+                                                                <img class="jss193"
+                                                                     src="https://www.winner.ro/build/static/media/delete.71c92193.svg"
+                                                                     alt="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <button>1.2</button>
-                                <button>3.5</button>
+                            </div>
+                        </div>
+
+                        <div>
+                            <div class="jss365">
+                                <div>
+                                    <div class="jss366 d-flex flex-row flex-nowrap justify-content-between align-items-center">
+                                        <div class="jss367">DISPONIBIL</div>
+                                        <div class="jss367">122 Lei</div>
+                                    </div>
+                                    <div class="jss369"></div>
+                                </div>
+
+                                <div class="jss371">Alege miza</div>
+                                <div class="jss372 d-flex flex-row flex-nowrap justify-content-between align-items-center">
+                                    <div class="jss376">
+                                        <div class="jss373">Cota finala</div>
+                                        <div class="jss374 odd">2.20</div>
+                                    </div>
+                                    <div class="jss376">
+                                        <div class="jss373">Sumă pariată</div>
+                                        <div class="jss374"><span
+                                                class="betValue">10</span> <span
+                                                class="jss375">Lei</span></div>
+                                    </div>
+                                    <div class="jss376 jss396 ">
+                                        <div class="jss373 subtitle">Castig</div>
+                                        <div class="jss374 title"><span
+                                                class="potentialGain">22.00</span><span
+                                                class="jss375 currency">Lei</span></div>
+                                    </div>
+                                </div>
+                                <div class="jss377 d-flex flex-row flex-nowrap align-items-center justify-content-center">
+                                    <div class="jss150 ">
+                                        <button class="MuiButtonBase-root jss378"
+                                                tabindex="0" type="button"
+                                                variant="contained">
+                                            <div class="jss380">-</div>
+                                            <span class="MuiTouchRipple-root"></span>
+                                        </button>
+                                    </div>
+                                    <div class="MuiInputBase-root jss381  MuiInputBase-adornedEnd">
+                                        <input th:field="*{value}" type="number"
+                                               class="input-bet-value MuiInputBase-input jss382 MuiInputBase-inputAdornedEnd"
+                                               aria-label="stake" pattern="[0-9.]+"
+                                               value="10">
+                                        <div class="MuiInputAdornment-root jss383  MuiInputAdornment-positionEnd">
+                                            <p class="MuiTypography-root MuiTypography-body1 MuiTypography-colorTextSecondary">
+                                                Lei</p>
+                                        </div>
+                                    </div>
+                                    <div class="jss150 ">
+                                        <button class="MuiButtonBase-root jss379"
+                                                tabindex="0" type="button"
+                                                variant="contained">
+                                            <div class="jss380">+</div>
+                                            <span class="MuiTouchRipple-root"></span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="jss388 d-flex flex-row flex-nowrap justify-content-between align-items-center">
+                                    <div class="jss389">
+                                        <button class="MuiButtonBase-root jss390"
+                                                tabindex="0" type="button"
+                                                variant="contained">+5 Lei<span
+                                                class="MuiTouchRipple-root"></span>
+                                        </button>
+                                    </div>
+                                    <div class="jss389">
+                                        <button class="MuiButtonBase-root jss390"
+                                                tabindex="0" type="button"
+                                                variant="contained">+10 Lei<span
+                                                class="MuiTouchRipple-root"></span>
+                                        </button>
+                                    </div>
+                                    <div class="jss389">
+                                        <button class="MuiButtonBase-root jss390"
+                                                tabindex="0" type="button"
+                                                variant="contained">+20 Lei<span
+                                                class="MuiTouchRipple-root"></span>
+                                        </button>
+                                    </div>
+                                    <div class="jss389">
+                                        <button class="MuiButtonBase-root jss390"
+                                                tabindex="0" type="button"
+                                                variant="contained">+50 Lei<span
+                                                class="MuiTouchRipple-root"></span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="jss412">
+                                    <div class="jss411">
+                                        <img src="https://www.winner.ro/build/static/media/deleteWhite.a3e27507.svg"
+                                             alt="">
+                                    </div>
+                                    <button class="MuiButtonBase-root jss384 "
+                                            tabindex="0" type="submit"
+                                            variant="contained">
+                                        <div>
+                                            <div class="jss395">PLASEAZĂ BILET ONLINE
+                                            </div>
+                                        </div>
+                                        <span class="MuiTouchRipple-root"></span>
+                                    </button>
+                                </div>
+                                <div class="jss391 d-flex flex-row flex-nowrap justify-content-between align-items-center">
+                                    <div class="jss392"></div>
+                                    <div class="rsc-default"></div>
+                                </div>
+                                <div class="jss398"></div>
                             </div>
                         </div>
                     </div>
-                    <div class="event-item">
-                        <p class="event-item-head">Basketball / NBA<span class="event-text-right">18:30</span></p>
-                        <div class="event-teams">
-                            <div class="left-column">
-                                <p>Home</p>
-                                <p>Guest</p>
-                            </div>
-                            <div class="right-column">
-                                <div class="inner-right-column">
-                                    <div class="inner-right-column-left">1</div>
-                                    <div class="inner-right-column-right">2</div>
-                                </div>
-                                <button>1.2</button>
-                                <button>3.5</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="event-item">
-                        <p class="event-item-head">Basketball / NBA<span class="event-text-right">18:30</span></p>
-                        <div class="event-teams">
-                            <div class="left-column">
-                                <p>Home</p>
-                                <p>Guest</p>
-                            </div>
-                            <div class="right-column">
-                                <div class="inner-right-column">
-                                    <div class="inner-right-column-left">1</div>
-                                    <div class="inner-right-column-right">2</div>
-                                </div>
-                                <button>1.2</button>
-                                <button>3.5</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="event-column">
-                    <div class="event-column-head">
-                        <p>Another Thing</p>
-                    </div>
-                    <div class="event-item">
-                        <p class="event-item-head">Basketball / NBA<span class="event-text-right">18:30</span></p>
-                        <div class="event-teams">
-                            <div class="left-column">
-                                <p>Home</p>
-                                <p>Guest</p>
-                            </div>
-                            <div class="right-column">
-                                <div class="inner-right-column">
-                                    <div class="inner-right-column-left">1</div>
-                                    <div class="inner-right-column-right">2</div>
-                                </div>
-                                <button>1.2</button>
-                                <button>3.5</button>
-                            </div>
-                        </div>
-                    </div>
+                        <input th:field="*{option}" type="hidden" class="option">
+                        <input th:field="*{eventId}" type="hidden" class="eventId">
+                    </form>
                 </div>
             </div>
         </section>
     </section>
-
-
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!--	     <script type="text/javascript" th:src="@{/js/script.js}"></script>-->

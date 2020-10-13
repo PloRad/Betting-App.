@@ -1024,7 +1024,6 @@ h1.title {
 }
 
 
-}
 .checkbox-container .field-label input[type=checkbox],
 .checkbox-container .field-label input[type=radio],
 .radio-container .field-label input[type=checkbox],
@@ -1044,7 +1043,6 @@ input[type=radio] {
 }
 .radio-container .radio-list>* {
 	padding-left: 4px;
-	padding-right: 4px;
 	min-height: 1px;
 	padding-right: 24px;
 }
@@ -1233,7 +1231,6 @@ video {
 	background: transparent;
 }
 
-}
 .multi-page-registration-form .form-nav-link {
 	position: absolute;
 	top: 0;
@@ -1679,7 +1676,6 @@ select {
 	border: 1px solid #e8e8e8;
 }
 
-}
 .full-width.form-textarea,
 .full-width.form-textbox {
 	overflow: hidden;
@@ -1780,6 +1776,6 @@ div.form-selectbox:hover > .down-arrow{
 	background: rgba(54, 179, 50, 0.829);
 }
 
-article div li.form-nav-item:after {
-    background: red;
+.group-field.centered .field-label {
+	text-align: center;
 }

@@ -16,27 +16,28 @@ import org.springframework.web.bind.annotation.PostMapping;
 @SpringBootApplication
 public class AdminController {
 
-    @Autowired
-    private EventFormValidator eventFormValidator;
+  @Autowired
+  private EventFormValidator eventFormValidator;
 
-    @Autowired
-    private EventService eventService;
+  @Autowired
+  private EventService eventService;
 
-    @GetMapping({"/newEvent"})
-    public String getNewEventPage(Model model) {
+  @GetMapping({"/newEvent"})
+  public String getNewEventPage(Model model) {
+    model.addAttribute("eventForm", new EventForm());
+    return "newEvent";
+  }
 
-        model.addAttribute("eventForm", new EventForm());
-        return "newEvent";
+  @PostMapping({"/newEvent"})
+  public String postNewEventPage(@ModelAttribute("eventForm") EventForm eventForm, BindingResult bindingResult) {
+
+    eventFormValidator.validate(eventForm, bindingResult);
+    if (bindingResult.hasErrors()) {
+      return "newEvent";
     }
 
-    @PostMapping({"/newEvent"})
-    public String postNewEventPage(@ModelAttribute("eventForm") EventForm eventForm, BindingResult bindingResult) {
+    eventService.save(eventForm);
 
-        eventFormValidator.validate(eventForm, bindingResult);
-        if (bindingResult.hasErrors()) {
-            return "newEvent";
-        }
-        eventService.save(eventForm);
-        return "redirect:/home";
-    }
+    return "redirect:/home";
+  }
 }

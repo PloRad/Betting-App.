@@ -26,10 +26,13 @@ public class EventMapper {
         LocalDateTime localDateTime = TimeUtil.parseLocalDateTimeFrom(eventForm.getDate(), eventForm.getTime());
         event.setDateTime(localDateTime);
 
+
         return event;
+
     }
 
     public EventForm map(Event event) {
+
         EventForm eventForm = new EventForm();
         eventForm.setPlayerA(event.getPlayerA());
         eventForm.setPlayerB(event.getPlayerB());
@@ -37,13 +40,12 @@ public class EventMapper {
         eventForm.setOddA(event.getOddA().toString());
         eventForm.setOddB(event.getOddB().toString());
         eventForm.setOddX(event.getOddX().toString());
-
-        String date = event.getDateTime().toLocalDate().toString();
-        String time = event.getDateTime().toLocalTime().toString();
-
-        eventForm.setDate(date);
-        eventForm.setTime(time);
+        eventForm.setTime(event.getDateTime().toLocalTime().toString());
+        eventForm.setDate(event.getDateTime().toLocalDate().toString());
+        eventForm.setEventId(event.getId().toString());
 
         return eventForm;
+
+
     }
 }

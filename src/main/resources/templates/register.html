@@ -21,23 +21,6 @@
                     Odds</h1>
                 <div class="header-controls">
                     <ul class="header-menu">
-
-
-                        <!--this +++-->                         <!-- <li class="menu-item">
-							<a href="http://unibetcommunity.com"
-							   class="has-icon-suffix  external-link "
-							   target="_blank">
-							<span class="text">Unibet Community</span>
-							<i class="icon-wrapper icon-suffix external-link">
-							</i>
-							</a>
-						 </li> -->
-
-                        <!--this +++-->                         <!-- <li class="menu-item">
-							<a href="/help"
-							   target="_blank">Help</a>
-						 </li> -->
-
                         <li class="menu-item">
                             <a href=""
                                class="has-icon-suffix  external-link ">
@@ -46,24 +29,6 @@
                                 </i>
                             </a>
                         </li>
-
-                        <!--this +++-->                         <!-- <li class="menu-item">
-							<a href="/general-info/whentostop">Responsible Gaming</a>
-						 </li> -->
-
-                        <!--this +++-->                         <!-- <li class="menu-item">
-							<div id="country-selector-537947"
-							   class="widget country-selector header">
-							   <span class="selector-button has-icon-suffix">
-							   <i class="icon icon-country-GB text"
-								  title="UK"></i>
-							   <i class="icon-wrapper icon-suffix arrow-down expand">
-							   </i>
-							   <i class="icon-wrapper icon-suffix arrow-up collapse">
-							   </i>
-							   </span>
-							</div>
-						 </li> -->
                     </ul>
                 </div>
             </div>
@@ -88,10 +53,8 @@
                                             <div>
                                                 <div class="Group__vertical___3xm_m Group__root___hnqau Group__tight___2kwl8">
                                                     <div class="Group__horizontal___33MBr Group__root___hnqau Group__normal___2vWh8">
-                                                        <form data-test-name="container-login-header"
-                                                              novalidate=""
-                                                              action="https://www.unibet.co.uk/login"
-                                                              method="POST">
+
+                                                        <form sec:authorize="isAnonymous()" th:action="@{/login}" method="POST">
                                                             <div class="Group__horizontal___33MBr Group__root___hnqau Group__none___3J27q">
                                                                 <div class="_e296pg">
                                                                     <div class="_e7hn5">
@@ -103,7 +66,6 @@
                                                                                        type="email"
                                                                                        placeholder="Email"
                                                                                        autocomplete="off"
-                                                                                       data-test-name="field-username"
                                                                                        value="">
                                                                             </div>
                                                                         </div>
@@ -120,7 +82,6 @@
                                                                                            type="password"
                                                                                            placeholder="Password"
                                                                                            autocomplete="off"
-                                                                                           data-test-name="field-password"
                                                                                            value="">
                                                                                 </div>
                                                                                 <div class="Password__decorator___18BCS">
@@ -139,10 +100,10 @@
                                                                 </div>
                                                                 <div>
                                                                     <button class="_192xn9cNaN"
-                                                                            data-test-name="btn-login">
-														  <span class="_7byueq">
-														  <span class="_1etkxf1">Log In</span>
-														  </span>
+                                                                            data-test-name="btn-login" type="submit">
+														                <span class="_7byueq">
+														                    <span class="_1etkxf1">Log In</span>
+														                </span>
                                                                     </button>
                                                                 </div>
                                                             </div>
@@ -153,13 +114,18 @@
                                             </div>
                                         </div>
                                         <div class="bottom-container">
-                                            <div class="register-button-container">
-                                                <a href="/registration"
-                                                   class="_10sdc5fNaN"
-                                                   data-test-name="btn-register">
-										   <span class="_7byueq">
-										   <span class="_1etkxf1">Register</span>
-										   </span>
+                                            <div sec:authorize="isAnonymous()" class="register-button-container">
+                                                <a href="/register" class="_10sdc5fNaN">
+                                                    <span class="_7byueq">
+                                                        <span class="_1etkxf1">Register</span>
+                                                    </span>
+                                                </a>
+                                            </div>
+                                            <div sec:authorize="isAuthenticated()" class="register-button-container">
+                                                <a href="/logout" class="_10sdc5fNaN">
+                                                    <span class="_7byueq">
+                                                        <span class="_1etkxf1">Log out</span>
+                                                    </span>
                                                 </a>
                                             </div>
                                         </div>
@@ -183,7 +149,7 @@
              class="main-navigation">
             <nav>
                 <ul class="menu-list product-navigation">
-                    <li class="list-item active has-sub ">
+                    <li class="list-item has-sub ">
                         <a href="/home"
                            class="has-icon-prefix link-item"
                            title="Home">
@@ -192,8 +158,9 @@
                             <span class="text">Home</span>
                         </a>
                     </li>
-                    <li class="list-item">
-                        <a href="/#"
+
+                    <li sec:authorize="isAuthenticated()" class="list-item">
+                        <a href="#"
                            class="has-icon-prefix link-item"
                            title="My Bets">
                             <i class="icon-wrapper icon-prefix casino">
@@ -201,8 +168,9 @@
                             <span class="text">My Bets</span>
                         </a>
                     </li>
-                    <li class="list-item">
-                        <a href="/#"
+
+                    <li sec:authorize="isAuthenticated()" class="list-item">
+                        <a href="#"
                            class="has-icon-prefix link-item"
                            title="My Account">
                             <i class="icon-wrapper icon-prefix horse-racing">
@@ -210,15 +178,29 @@
                             <span class="text">My Account</span>
                         </a>
                     </li>
-                    <li class="list-item">
+                    <li sec:authorize="isAuthenticated()" class="list-item">
                         <a href="/newEvent"
                            class="has-icon-prefix link-item"
                            title="Admin">
-                            <i class="icon-wrapper icon-prefix horse-racing">
+                            <i class="icon-wrapper icon-prefix live-casino-wheel">
                             </i>
                             <span class="text">Admin</span>
                         </a>
                     </li>
+                    <li sec:authorize="isAnonymous()" class="list-item active">
+                        <a href="/register"
+                           class="has-icon-prefix link-item"
+                           title="Admin">
+                            <i class="icon-wrapper icon-prefix live-casino-wheel">
+                            </i>
+                            <span class="text">Register</span>
+                        </a>
+                    </li>
+
+                </ul>
+                <ul class="menu-list misc-navigation">
+
+
                 </ul>
             </nav>
         </div>
@@ -239,16 +221,16 @@
                                 <div class="form-nav-wrapper">
                                     <ul class="form-nav">
                                         <li class="form-nav-item">
-                                            <a href="#registrationStep:0" class="form-nav-link active"
+                                            <a id="1" href="#registrationStep:0" class="form-nav-link active"
                                                data-target-index="0">
                                                 <span class="form-nav-count"> <span class="alert">!</span> <i
                                                         class="icon-wrapper success"><svg viewBox="0 0 32 32"
                                                                                           class="icon"><use
                                                         xlink:href="#icon-success"></use></svg></i> 1 </span>
                                             </a>
-                                            <a href="#registrationStep:1" class="form-nav-link " data-target-index="1">
+                                            <a id="2" href="#registrationStep:1" class="form-nav-link " data-target-index="1">
 											 <span class="form-nav-count">
-												<span class="alert">!</span> 
+												<span class="alert">!</span>
 												<i class="icon-wrapper success">
 												   <svg viewBox="0 0 32 32" class="icon">
 													  <use xlink:href="#icon-success">
@@ -257,33 +239,20 @@
 													  </use>
 												   </svg>
 												</i>
-												2 
+												2
 											 </span>
                                             </a>
                                         </li>
                                         <li class="form-nav-item">
-                                            <a href="#registrationStep:2" class="form-nav-link " data-target-index="2">
+                                            <a id="3" href="#registrationStep:2" class="form-nav-link " data-target-index="2">
 											 <span class="form-nav-count">
-												<span class="alert">!</span> 
+												<span class="alert">!</span>
 												<i class="icon-wrapper success">
 												   <svg viewBox="0 0 32 32" class="icon">
 													  <use xlink:href="#icon-success"></use>
 												   </svg>
 												</i>
-												3 
-											 </span>
-                                            </a>
-                                        </li>
-                                        <li class="form-nav-item">
-                                            <a href="#registrationStep:3" class="form-nav-link " data-target-index="3">
-											 <span class="form-nav-count">
-												<span class="alert">!</span> 
-												<i class="icon-wrapper success">
-												   <svg viewBox="0 0 32 32" class="icon">
-													  <use xlink:href="#icon-success"></use>
-												   </svg>
-												</i>
-												4 
+												3
 											 </span>
                                             </a>
                                         </li>
@@ -1039,7 +1008,6 @@
                                                 Continue
                                             </button>
                                             <ol class="field-list hidden"></ol>
-                                            <div id="captcha-element-725633"></div>
 
 
                                         </li>

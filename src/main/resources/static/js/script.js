@@ -121,22 +121,11 @@ function populateFirstName() {
     $("h3.js-inject span.firstName").text(firstName);
 }
 
-
-function stickyNavBar() {
-
-  var navbar = document.getElementById("navigation-355596");
-  var sticky = navbar.offsetTop;
-
-  if (window.pageYOffset >= sticky) {
-    navbar.classList.add("sticky-navbar")
-  } else {
-    navbar.classList.remove("sticky-navbar");
-  }
-}
-
 $(document).ready(function () {
 
-    window.onscroll = function() {stickyNavBar()};
+    // $("#registrationFields-725633 a#2").removeClass("active");
+    // $("#registrationFields-725633 a#3").removeClass("active");
+    // $("#registrationFields-725633 a#4").removeClass("active");
 
     $("#firstName").focusout(function () {
         validateInputField(this, new RegExp('^[A-Za-z]{2,20}$'));
@@ -168,6 +157,8 @@ $(document).ready(function () {
                 validateInputField(this, new RegExp('^[0-9]{9,9}$'));
     });
 
+
+
     $("#viewPassword").click(function (e) {
 
 
@@ -180,6 +171,7 @@ $(document).ready(function () {
             $("#viewPassword").text("Show");
         }
     });
+
 
     $(".submitRegistration").click(function (e) {
         e.preventDefault();
@@ -194,21 +186,74 @@ $(document).ready(function () {
 
                 $(".form-view-1").hide(500);
                 $(".form-view-2").show(500);
+                $("#registrationFields-725633 a#2").addClass("active");
                 populateFirstName();
 
             } else if ($(".form-view-2").is(":visible")) {
 
                 $(".form-view-2").hide(500);
                 $(".form-view-3").show(500);
-                /* populateFirstName();*/
-
+                $("#registrationFields-725633 a#3").addClass("active");
             }
-
-
         }
+    });
 
+    $("#depositButton").click(function(e){
+        e.preventDefault();
+        $("div form #withdraw-form").hide(500);
+        $("div form #deposit-form").show(500);
+    });
+
+    $("#withdrawButton").click(function(e){
+        e.preventDefault();
+        $("div form #deposit-form").hide(500);
+        $("div form #withdraw-form").show(500);
+    });
+
+
+
+
+    //placing bets
+
+    $(".event-item button").click(function(e){
+        e.preventDefault();
+        var card = $(".event-column.bet-card");
+        $(card).show();
+        $(".event-item button").removeClass("selected");
+        $(this).addClass("selected");
+
+        var eventItem = $(this).closest(".event-item");
+        var playerA = $(eventItem).find("p.playerA").text();
+        var playerB = $(eventItem).find("p.playerB").text();
+        var time = $(eventItem).find("span.time").text();
+        var date = $(eventItem).find("span.date").text();
+        var odd = $(this).text();
+        var option = $(this).siblings("label").text();
+        var eventId = $(eventItem).find(".eventId").text();
+
+        var betValue =  $(card).find("span.betValue").text();
+        var potentialGain = odd * betValue;
+
+
+        $(card).find("span.option").text(option);
+        $(card).find("input.option").val(option);
+        $(card).find(".teams").text(playerA+" : "+playerB);
+        $(card).find(".odd").text(odd);
+        $(card).find(".dateTime").text(date+" "+time);
+        $(card).find(".potentialGain").text(potentialGain.toFixed(2));
+        $(card).find("form input.eventId").val(eventId);
 
     });
+
+    $(".event-column.bet-card input.input-bet-value").focusout(function(e) {
+        var newBetValue = $(this).val();
+        var card = $(".event-column.bet-card");
+        $(card).find("span.betValue").text(newBetValue);
+        var odd = $(".event-item button.selected").text();
+        var potentialGain = odd * newBetValue;
+        $(card).find(".potentialGain").text(potentialGain.toFixed(2));
+    });
+
 
 });
 

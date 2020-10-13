@@ -22,23 +22,6 @@
           Odds</h1>
         <div class="header-controls">
           <ul class="header-menu">
-
-
-            <!--this +++-->                         <!-- <li class="menu-item">
-							<a href="http://unibetcommunity.com"
-							   class="has-icon-suffix  external-link "
-							   target="_blank">
-							<span class="text">Unibet Community</span>
-							<i class="icon-wrapper icon-suffix external-link">
-							</i>
-							</a>
-						 </li> -->
-
-            <!--this +++-->                         <!-- <li class="menu-item">
-							<a href="/help"
-							   target="_blank">Help</a>
-						 </li> -->
-
             <li class="menu-item">
               <a href=""
                  class="has-icon-suffix  external-link ">
@@ -47,24 +30,6 @@
                 </i>
               </a>
             </li>
-
-            <!--this +++-->                         <!-- <li class="menu-item">
-							<a href="/general-info/whentostop">Responsible Gaming</a>
-						 </li> -->
-
-            <!--this +++-->                         <!-- <li class="menu-item">
-							<div id="country-selector-537947"
-							   class="widget country-selector header">
-							   <span class="selector-button has-icon-suffix">
-							   <i class="icon icon-country-GB text"
-								  title="UK"></i>
-							   <i class="icon-wrapper icon-suffix arrow-down expand">
-							   </i>
-							   <i class="icon-wrapper icon-suffix arrow-up collapse">
-							   </i>
-							   </span>
-							</div>
-						 </li> -->
           </ul>
         </div>
       </div>
@@ -83,35 +48,26 @@
               <div class="widget login">
                 <div class="login-content">
                   <div class="top-container"></div>
-                  <div
-                      style="overflow: hidden; height: 0px; transition: height 400ms ease-out 0s;"></div>
+                  <div style="overflow: hidden; height: 0px; transition: height 400ms ease-out 0s;"></div>
                   <div class="MainLogin__inline___1STfT">
-                    <div
-                        class="MainLogin__headerListContainer___18GWl MainLogin__shrinkRight___2QG_i">
+                    <div class="MainLogin__headerListContainer___18GWl MainLogin__shrinkRight___2QG_i">
                       <div>
-                        <div
-                            class="Group__vertical___3xm_m Group__root___hnqau Group__tight___2kwl8">
-                          <div
-                              class="Group__horizontal___33MBr Group__root___hnqau Group__normal___2vWh8">
-                            <form data-test-name="container-login-header"
-                                  novalidate=""
-                                  action="https://www.unibet.co.uk/login"
-                                  method="POST">
-                              <div
-                                  class="Group__horizontal___33MBr Group__root___hnqau Group__none___3J27q">
+                        <div class="Group__vertical___3xm_m Group__root___hnqau Group__tight___2kwl8">
+                          <div class="Group__horizontal___33MBr Group__root___hnqau Group__normal___2vWh8">
+
+                            <form sec:authorize="isAnonymous()" th:action="@{/login}" method="POST">
+                              <div class="Group__horizontal___33MBr Group__root___hnqau Group__none___3J27q">
                                 <div class="_e296pg">
                                   <div class="_e7hn5">
                                     <div class="_irsnq7">
                                       <div class="Fieldstyle__FormField-sc-1gdsmw1-0 dVqUFp">
-                                        <input
-                                            class="Field-headerstyle__HeaderInput-sc-1p523a3-0 fvfEHO Fieldstyle__Input-sc-1gdsmw1-1 iTCtjl"
-                                            id="ufe_unique_id_1"
-                                            name="username"
-                                            type="email"
-                                            placeholder="Email"
-                                            autocomplete="off"
-                                            data-test-name="field-username"
-                                            value="">
+                                        <input class="Field-headerstyle__HeaderInput-sc-1p523a3-0 fvfEHO Fieldstyle__Input-sc-1gdsmw1-1 iTCtjl"
+                                               id="ufe_unique_id_1"
+                                               name="username"
+                                               type="email"
+                                               placeholder="Email"
+                                               autocomplete="off"
+                                               value="">
                                       </div>
                                     </div>
                                   </div>
@@ -121,15 +77,13 @@
                                     <div class="_irsnq7">
                                       <div class="fieldContainer">
                                         <div class="Fieldstyle__FormField-sc-1gdsmw1-0 dVqUFp">
-                                          <input
-                                              class="Field-headerstyle__HeaderInput-sc-1p523a3-0 fvfEHO Fieldstyle__Input-sc-1gdsmw1-1 beIQrZ"
-                                              id="ufe_unique_id_2"
-                                              name="password"
-                                              type="password"
-                                              placeholder="Password"
-                                              autocomplete="off"
-                                              data-test-name="field-password"
-                                              value="">
+                                          <input class="Field-headerstyle__HeaderInput-sc-1p523a3-0 fvfEHO Fieldstyle__Input-sc-1gdsmw1-1 beIQrZ"
+                                                 id="ufe_unique_id_2"
+                                                 name="password"
+                                                 type="password"
+                                                 placeholder="Password"
+                                                 autocomplete="off"
+                                                 value="">
                                         </div>
                                         <div class="Password__decorator___18BCS">
                                           <div>
@@ -147,10 +101,10 @@
                                 </div>
                                 <div>
                                   <button class="_192xn9cNaN"
-                                          data-test-name="btn-login">
-														  <span class="_7byueq">
-														  <span class="_1etkxf1">Log In</span>
-														  </span>
+                                          data-test-name="btn-login" type="submit">
+														                <span class="_7byueq">
+														                    <span class="_1etkxf1">Log In</span>
+														                </span>
                                   </button>
                                 </div>
                               </div>
@@ -161,13 +115,18 @@
                       </div>
                     </div>
                     <div class="bottom-container">
-                      <div class="register-button-container">
-                        <a href="/registration"
-                           class="_10sdc5fNaN"
-                           data-test-name="btn-register">
-										   <span class="_7byueq">
-										   <span class="_1etkxf1">Register</span>
-										   </span>
+                      <div sec:authorize="isAnonymous()" class="register-button-container">
+                        <a href="/register" class="_10sdc5fNaN">
+                                                    <span class="_7byueq">
+                                                        <span class="_1etkxf1">Register</span>
+                                                    </span>
+                        </a>
+                      </div>
+                      <div sec:authorize="isAuthenticated()" class="register-button-container">
+                        <a href="/logout" class="_10sdc5fNaN">
+                                                    <span class="_7byueq">
+                                                        <span class="_1etkxf1">Log out</span>
+                                                    </span>
                         </a>
                       </div>
                     </div>
@@ -191,7 +150,7 @@
          class="main-navigation">
       <nav>
         <ul class="menu-list product-navigation">
-          <li class="list-item has-sub ">
+          <li class="list-item  has-sub ">
             <a href="/home"
                class="has-icon-prefix link-item"
                title="Home">
@@ -200,8 +159,9 @@
               <span class="text">Home</span>
             </a>
           </li>
+
           <li class="list-item">
-            <a href="/#"
+            <a href="#"
                class="has-icon-prefix link-item"
                title="My Bets">
               <i class="icon-wrapper icon-prefix casino">
@@ -209,8 +169,9 @@
               <span class="text">My Bets</span>
             </a>
           </li>
+
           <li class="list-item">
-            <a href="/#"
+            <a href="/myAccount"
                class="has-icon-prefix link-item"
                title="My Account">
               <i class="icon-wrapper icon-prefix horse-racing">
@@ -222,14 +183,60 @@
             <a href="/newEvent"
                class="has-icon-prefix link-item"
                title="Admin">
-              <i class="icon-wrapper icon-prefix horse-racing">
+              <i class="icon-wrapper icon-prefix live-casino-wheel">
               </i>
               <span class="text">Admin</span>
             </a>
           </li>
+
+        </ul>
+        <ul class="menu-list misc-navigation">
+
+
+
         </ul>
       </nav>
     </div>
+    <!--   <div id="nav-sub"
+            class="sub-navigation">
+           <nav>
+               <ul class="nav-list">
+                   <li class="list-item">
+                       <a href="/betting/sports"
+                          class="link-item"
+                          title="Sports Betting">Sports Betting</a>
+                   </li>
+                   <li class="list-item">
+                       <a href="/betting/virtualsports/euro-cup"
+                          class="has-icon-suffix link-item"
+                          title="Virtual Sports">
+                           <span class="text">Virtual Sports</span>
+                           <i class="icon-suffix">
+                               <span class="badge-text new">New</span>
+                           </i>
+                       </a>
+                   </li>
+                   <li class="list-item">
+                       <a href="https://s5.sir.sportradar.com/unibet/en"
+                          class="automated link-item"
+                          title="Statistics &amp; Livescore"
+                          data-width="-1"
+                          data-height="-1"
+                          data-automated-function="popup">Statistics &amp; Livescore</a>
+                   </li>
+                   <li class="list-item">
+                       <a href="/betting/sponsors"
+                          class="link-item"
+                          title="Sponsors">Sponsors</a>
+                   </li>
+                   <li class="list-item">
+                       <a href="/betting/guides"
+                          class="link-item"
+                          title="Betting Guide">Betting Guide</a>
+                   </li>
+               </ul>
+           </nav>
+       </div>-->
   </div>
 
 
@@ -436,7 +443,7 @@
                                 <div class="group-field size1of3">
                                   <div class="form-field">
                                     <div class="view view-field edit">
-                                      <label class="field-label">Odds for A to win</label>
+                                      <label class="field-label">1</label>
                                       <div class="validation-container">
                                          <span class="validation-icon">
                                           <i class="icon-wrapper success">
@@ -448,7 +455,7 @@
                                         <div class="form-textbox full-width">
 
                                           <input th:field="*{oddA}" type="number" name="oddA"
-                                                 id="oddA" placeholder="1" min="1"
+                                                 id="oddA" placeholder="Odds for A to win" min="1"
                                                  class="field"></div>
                                         <div class="message-container message-box hidden">
                                         </div>
@@ -464,7 +471,7 @@
                                   <div class="form-field">
                                     <div class="view view-field edit">
                                       <label class="field-label"
-                                             data-test-name="lastName">Odds for a draw</label>
+                                             data-test-name="lastName">X</label>
                                       <div class="validation-container valid">
                                          <span class="validation-icon">
                                           <i class="icon-wrapper success">
@@ -475,7 +482,7 @@
                                          </span>
                                         <div class="form-textbox full-width">
                                           <input th:field="*{oddX}" type="number" name="oddX"
-                                                 id="oddX" placeholder="X" min="1"
+                                                 id="oddX" placeholder="Odds for a draw" min="1"
                                                  class="field">
                                         </div>
                                         <div class="message-container message-box hidden"></div>
@@ -492,7 +499,7 @@
                                   <div class="form-field">
                                     <div class="view view-field edit">
                                       <label class="field-label"
-                                             data-test-name="lastName">Odds for B to win</label>
+                                             data-test-name="lastName">2</label>
                                       <div class="validation-container valid">
                                          <span class="validation-icon">
                                           <i class="icon-wrapper success">
@@ -503,7 +510,7 @@
                                          </span>
                                         <div class="form-textbox full-width">
                                           <input th:field="*{oddB}" type="number" name="oddB"
-                                                 id="oddB" placeholder="2" min="1"
+                                                 id="oddB" placeholder="Odds for B to win" min="1"
                                                  class="field">
                                         </div>
                                         <div class="message-container message-box hidden"></div>

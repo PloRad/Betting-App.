@@ -24,6 +24,13 @@ public class User {
     private String city;
     private String mobileNumber;
     private String password;
+
+    private Double balance;
+
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> roles;
+
+
+
+
 }

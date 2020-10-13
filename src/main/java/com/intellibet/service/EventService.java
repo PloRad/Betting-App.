@@ -20,19 +20,20 @@ public class EventService {
     @Autowired
     private EventRepository eventRepository;
 
-    public void save(EventForm eventForm) {
-
+    public void save(EventForm eventForm){
         Event event = eventMapper.map(eventForm);
         eventRepository.save(event);
     }
 
-    public List<EventForm> retrieveAllEvents() {
+    public List<EventForm> retrieveAllEvents(){
 
         List<Event> allEvents = eventRepository.findAll();
         List<EventForm> result = new ArrayList<>();
-        for (Event event : allEvents) {
+
+        for (Event event : allEvents){
             result.add(eventMapper.map(event));
         }
+
         return result;
     }
 }
